@@ -1,0 +1,40 @@
+#top {
+    text-align: center;
+}
+
+#wrapper {
+    width: 90%;
+    padding-left: 10%;
+}
+
+#final {
+    width:50%;
+    height:70%;
+    text-align: center;
+    padding-left: 20%;
+}
+
+#left {
+    float: left;
+    width: 45%;
+    height: 50%;
+}
+
+#right {
+    float: left;
+    width: 45%;
+    height: 50%;
+}
+
+#wrapper-footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 90%;
+    padding-left: 5%;
+}
+
+.name {
+    font-size:xx-large;
+    font-weight: bold;
+}

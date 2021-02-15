@@ -3,16 +3,43 @@
 
 <head>
     <title>Best Pick</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="./js/pick.js"></script>
 </head>
 
 <body>
-    <div>
+    <div id="top">
         <h1>Best Pick</h1>
     </div>
-    <div>
+    <div id="contents" class="contents">
+        <div id="app" style="display: none;">
+            <div id="wrapper">
+                <div id="typeA">
+                    <div id="left" onclick="hasPick('left');">
+                        <img v-bind:src="urlLeft" style="width:80%; height:50%;" />
+                    </div>
+                    <div id="right" onclick="hasPick('right');">
+                        <img v-bind:src="urlRight" style="width:80%; height:50%;" />
+                    </div>
+                </div>
+                <div id="typeB" style="display:none;">
+                    <div id="final">
+                        <img v-bind:src="urlFinal" style="width:45%; height:50%;" />
+                    </div>
+                </div>
+            </div>
+            <div id="wrapper-footer" v-if="''==urlFinal">
+                <span class="name">Round {{roundCounterIdx + 1}} ( {{cnt + 1}}/{{ roundCounter[roundCounterIdx] }}
+                    )</span>
+            </div>
+            <div id="wrapper-footer" v-else>
+                <span class="name">Your Best Pick!!</span>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
 
     </div>
 </body>
