@@ -1,46 +1,36 @@
 <!DOCTYPE html>
-<html>
 
 <head>
     <title>Best Pick</title>
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="./js/pick.js"></script>
 </head>
 
 <body>
-    <div id="top">
-        <h1>Best Pick</h1>
-    </div>
-    <div id="contents" class="contents">
-        <div id="app" style="display: none;">
-            <div id="wrapper">
-                <div id="typeA">
-                    <div id="left" onclick="hasPick('left');">
-                        <img v-bind:src="urlLeft" style="width:80%; height:50%;" />
-                    </div>
-                    <div id="right" onclick="hasPick('right');">
-                        <img v-bind:src="urlRight" style="width:80%; height:50%;" />
-                    </div>
-                </div>
-                <div id="typeB" style="display:none;">
-                    <div id="final">
-                        <img v-bind:src="urlFinal" style="width:45%; height:50%;" />
-                    </div>
-                </div>
-            </div>
-            <div id="wrapper-footer" v-if="''==urlFinal">
-                <span class="name">Round {{roundCounterIdx + 1}} ( {{cnt + 1}}/{{ roundCounter[roundCounterIdx] }}
-                    )</span>
-            </div>
-            <div id="wrapper-footer" v-else>
-                <span class="name">Your Best Pick!!</span>
-            </div>
+    <div class="container">
+        <!-- Page contents goes here -->
+        <div class="section">
+            <h5>Best Pick</h5>
+            <p>Find your best pick!</p>
         </div>
-    </div>
-    <div id="footer">
-
+        <div class="row">
+            <div class="col s4">
+                <div class="card-panel hoverable">
+                    <a href="./main.html"><img src="./img/ramen/1.jpg" style="width:100%;" />
+                        <span>라면</span></a>
+                </div>
+            </div>
+            <!--<div class="col s4">
+                <div class="card-panel hoverable">게임</div>
+            </div>
+            <div class="col s4">
+                <div class="card-panel hoverable">불량식품</div>
+            </div>-->
+        </div>
     </div>
 </body>
 
