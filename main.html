@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Best Pick</title>
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="./js/pick.js"></script>
+</head>
+
+<body>
+    <div id="top">
+        <h1>Best Pick</h1>
+    </div>
+    <div id="contents" class="contents">
+        <div id="app" style="display: none;">
+            <div id="wrapper">
+                <div id="typeA">
+                    <!-- 왼쪽 사진 선택 -->
+                    <div id="left" onclick="hasPick('left');">
+                        <img v-bind:src="urlLeft" style="width:80%; height:50%;" />
+                    </div>
+                    <!-- 오른쪽 사진 선택 -->
+                    <div id="right" onclick="hasPick('right');">
+                        <img v-bind:src="urlRight" style="width:80%; height:50%;" />
+                    </div>
+                </div>
+                <div id="typeB" style="display:none;">
+                    <div id="final">
+                        <img v-bind:src="urlFinal" style="width:45%; height:50%;" />
+                    </div>
+                </div>
+            </div>
+            <div id="wrapper-footer" v-if="''==urlFinal">
+                <span class="name">Round {{roundCounterIdx + 1}} ( {{cnt + 1}}/{{ roundCounter[roundCounterIdx] }}
+                    )</span>
+            </div>
+            <div id="wrapper-footer" v-else>
+                <span class="name">Your Best Pick!!</span>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+
+    </div>
+</body>
+
+</html>
