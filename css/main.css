@@ -8,10 +8,7 @@
 }
 
 #final {
-    width:50%;
-    height:70%;
     text-align: center;
-    padding-left: 20%;
 }
 
 #left {
@@ -30,8 +27,6 @@
     position: absolute;
     bottom: 0;
     text-align: center;
-    width: 90%;
-    padding-left: 5%;
 }
 
 .name {

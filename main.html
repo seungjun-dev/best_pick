@@ -12,39 +12,69 @@
 </head>
 
 <body>
-    <div id="top">
-        <h1>Best Pick</h1>
-    </div>
-    <div id="contents" class="contents">
-        <div id="app" style="display: none;">
-            <div id="wrapper">
-                <div id="typeA">
-                    <!-- 왼쪽 사진 선택 -->
-                    <div id="left" onclick="hasPick('left');">
-                        <img v-bind:src="urlLeft" style="width:80%; height:50%;" />
-                    </div>
-                    <!-- 오른쪽 사진 선택 -->
-                    <div id="right" onclick="hasPick('right');">
-                        <img v-bind:src="urlRight" style="width:80%; height:50%;" />
-                    </div>
-                </div>
-                <div id="typeB" style="display:none;">
-                    <div id="final">
-                        <img v-bind:src="urlFinal" style="width:45%; height:50%;" />
-                    </div>
-                </div>
-            </div>
-            <div id="wrapper-footer" v-if="''==urlFinal">
-                <span class="name">Round {{roundCounterIdx + 1}} ( {{cnt + 1}}/{{ roundCounter[roundCounterIdx] }}
-                    )</span>
-            </div>
-            <div id="wrapper-footer" v-else>
-                <span class="name">Your Best Pick!!</span>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="./index.html" class="brand-logo">Best Pick</a>
+                <!--<ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>-->
             </div>
         </div>
-    </div>
-    <div id="footer">
-
+    </nav>
+    <div>
+        <div id="top">
+            <h2>라면 이상형 월드컵</h2>
+        </div>
+        <div id="app" style="display: none;">
+            <div class="row">
+                <div class="col s12 m12">
+                    <div id="typeA" class="container">
+                        <div class="row">
+                            <!-- 왼쪽 사진 선택 -->
+                            <div class="col s6 m6" onclick="hasPick('left');">
+                                <div class="card-panel hoverable">
+                                    <img v-bind:src="urlLeft" style="width:100%; height:80%;" />
+                                </div>
+                            </div>
+                            <!-- 오른쪽 사진 선택 -->
+                            <div class="col s6 m6" onclick="hasPick('right');">
+                                <div class="card-panel hoverable">
+                                    <img v-bind:src="urlRight" style="width:100%; height:80%;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s4"></div>
+                <div class="col s4">
+                    <div id="typeB" style="display:none;">
+                        <div class="card-panel hoverable" id="final">
+                            <img v-bind:src="urlFinal" style="width:80%;" />
+                        </div>
+                    </div>
+                </div>
+                <div class=" col s4">
+                </div>
+            </div>
+            <div class="row">
+                <div id="wrapper-footer" class="col s12 m12">
+                    <div v-if="''==urlFinal">
+                        <span class="name">Round {{roundCounterIdx + 1}} ( {{cnt + 1}}/{{
+                            roundCounter[roundCounterIdx]
+                            }}
+                            )</span>
+                    </div>
+                    <div v-else>
+                        <span class="name">Your Best Pick!!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
