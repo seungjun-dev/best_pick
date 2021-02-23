@@ -18,9 +18,13 @@ var goContents = {
     , roundCounterIdx: 0
     , cnt: 0
     , urlLeft: ''
+    , textLeft: ''
     , urlRight: ''
+    , textRight: ''
     , urlFinal: ''
+    , textFinal: ''
     , idx: 0
+    , topic: ''
 }
 
 window.onload = function () {
@@ -37,8 +41,20 @@ window.onload = function () {
 
 init = function () {
     //console.log("best pick game start!");
+    getTopic();
     setRandomNumber();
     startPick();
+}
+
+getTopic = function () {
+    var param = location.search;
+    if (param.indexOf("ramen") != -1) {
+        goContents.topic = "Ramen";
+    } else if (param.indexOf("puppy") != -1) {
+        goContents.topic = "Puppy";
+    } else if (param.indexOf("snack") != -1) {
+        goContents.topic = "Snack";
+    }
 }
 
 /**
@@ -66,11 +82,25 @@ sameNum = function (rNumber) {
  * 이미지 URL 생성
  */
 getImage = function (i) {
-    var _url = './img/ramen/';
-    var _fmt = '.jpg';
+    var _url = './img/' + goContents.topic.toLowerCase() + '/';
 
-    goContents.urlLeft = _url + item[i * 2] + _fmt;
-    goContents.urlRight = _url + item[i * 2 + 1] + _fmt;
+    if ("ramen" == goContents.topic.toLowerCase()) {
+        goContents.urlLeft = _url + ramen[item[i * 2] - 1].pics;
+        goContents.urlRight = _url + ramen[item[i * 2 + 1] - 1].pics;
+        goContents.textLeft = ramen[item[i * 2] - 1].name;
+        goContents.textRight = ramen[item[i * 2 + 1] - 1].name;
+    } else if ("puppy" == goContents.topic.toLowerCase()) {
+        goContents.urlLeft = _url + puppy[item[i * 2] - 1].pics;
+        goContents.urlRight = _url + puppy[item[i * 2 + 1] - 1].pics;
+        goContents.textLeft = puppy[item[i * 2] - 1].name;
+        goContents.textRight = puppy[item[i * 2 + 1] - 1].name;
+    } else if ("snack" == goContents.topic.toLowerCase()) {
+        goContents.urlLeft = _url + snack[item[i * 2] - 1].pics;
+        goContents.urlRight = _url + snack[item[i * 2 + 1] - 1].pics;
+        goContents.textLeft = snack[item[i * 2] - 1].name;
+        goContents.textRight = snack[item[i * 2 + 1] - 1].name;
+    }
+
 }
 
 /**
@@ -127,10 +157,19 @@ resetPick = function () {
  * 마지막 화면 랜더링
  */
 renderFinalPick = function () {
-    var _url = './img/ramen/';
-    var _fmt = '.jpg';
+    var _url = './img/' + goContents.topic.toLowerCase() + '/';
 
-    goContents.urlFinal = _url + round5 + _fmt;
+    if ("ramen" == goContents.topic.toLowerCase()) {
+        goContents.urlFinal = _url + ramen[round5 - 1].pics;
+        goContents.textFinal = ramen[round5 - 1].name;
+    } else if ("puppy" == goContents.topic.toLowerCase()) {
+        goContents.urlFinal = _url + puppy[round5 - 1].pics;
+        goContents.textFinal = puppy[round5 - 1].name;
+    } else if ("snack" == goContents.topic.toLowerCase()) {
+        goContents.urlFinal = _url + snack[round5 - 1].pics;
+        goContents.textFinal = snack[round5 - 1].name;
+    }
+
 
     $('#typeA').hide();
     $('#typeB').show();
