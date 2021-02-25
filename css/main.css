@@ -37,3 +37,8 @@
 .center-align {
     text-align: center;
 }
+
+.topic-name {
+    font-size: large;
+    font-weight: bold;
+}
